@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Header, Content, Sidebar, Footer } from '../../components/Layout';
+import { Search } from '../../components';
 
 
 export default function Weather() {
@@ -9,11 +11,11 @@ export default function Weather() {
             <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <Sidebar />
                 <Content>
-                    {/* <Search /> */}
+                    <Search />
                     <div>
                         {/* <Painel />
                         <Chart /> */}
-                        Weather!!
+                        Content Weather!!
                     </div>
                 </Content>
             </div>
