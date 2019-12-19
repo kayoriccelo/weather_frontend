@@ -1,4 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render(<div>Weather forecast</div>, document.getElementById('root'));
+import App from './pages/App';
+import './commons/style/application.css'
+
+
+ReactDOM.render(<App />, document.getElementById('root'));
