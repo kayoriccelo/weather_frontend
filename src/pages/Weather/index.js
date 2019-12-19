@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Search, Panel } from '../../components';
+import { Search, Panel, List } from '../../components';
 import { StyledRoot, StyledMain } from './styled';
 
 
@@ -47,7 +47,7 @@ export default function Weather() {
             <StyledMain>
                 <Panel data={data['city']} />
 
-                {/* <List data={data['city']['list']} /> */}
+                <List data={data['city']} />
             </StyledMain>
         </StyledRoot >
     );

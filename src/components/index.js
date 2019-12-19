@@ -1,12 +1,12 @@
 import Link from './Link';
 import Search from './Search';
-import Chart from './Chart';
+import List from './List';
 import Panel from './Panel';
 
 
 export {
     Link,
     Search,
-    Chart,
+    List,
     Panel
 };
