@@ -11,15 +11,19 @@ export default function App() {
     return (
         <BrowserRouter>
             <Header />
+
             <StyledMain>
                 <Sidebar />
+            
                 <Content>
                     <Switch>
                         <Route exact path='/' component={Weather} />
+            
                         <Route exact path='/history' component={History} />
                     </Switch>
                 </Content>
             </StyledMain>
+           
             <Footer />
         </BrowserRouter>
     );

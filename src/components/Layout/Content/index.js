@@ -1,13 +1,12 @@
 import React from 'react';
 
+import { StyledRoot } from './styled';
+
 
 export default function Content(props) {
     return (
-        <div style={{
-            width: "100%",
-            height: "calc(100vh - 90px)"
-        }}>
+        <StyledRoot>
             {props.children}
-        </div>
+        </StyledRoot>
     );
 };

@@ -1,17 +1,15 @@
 import React from 'react';
 
-import { Search } from '../../components';
+import { Search, Chart } from '../../components';
+import { StyledRoot } from './styled';
 
 
 export default function Weather() {
     return (
-        <>
+        <StyledRoot>
             <Search />
-            <div>
-                {/* <Painel />
-                    <Chart /> */}
-                Content Weather!!
-            </div>
-        </>
+
+            <Chart />
+        </StyledRoot>
     );
 };
