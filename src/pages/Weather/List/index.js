@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { StyledTitle } from './styled';
+import Modal from '../../../components/Modal';
 
 export default function List(props) {
+    const [showing, setShowing] = useState(false);
+
     return (
         <div style={{
             margin: '6px 18px 6px 6px',
@@ -28,8 +31,11 @@ export default function List(props) {
                         <div style={{
                             display: 'flex',
                             justifyContent: 'space-around',
-                            fontSize: 12
-                        }}>
+                            fontSize: 12,
+                            cursor: 'pointer'
+                        }}
+                        onClick={() => setShowing(true)}
+                        >
                             <b>Date:</b> {item['dt_txt']}
 
                             <b>Cloudiness:</b> {item['weather'][0]['description']}
@@ -50,6 +56,11 @@ export default function List(props) {
                         Empty
                     </div>
                 )}
+
+            <Modal
+                showing={showing}
+                hide={() => setShowing(false)}
+            />
         </div>
     );
 };
