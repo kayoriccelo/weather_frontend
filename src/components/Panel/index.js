@@ -19,7 +19,7 @@ export default function Panel(props) {
     return (
         <StyledCard>
             <StyledTitle>
-                Panel
+                Location
             </StyledTitle>
 
             <StyledRow>

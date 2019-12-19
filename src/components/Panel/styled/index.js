@@ -5,16 +5,17 @@ export const StyledCard = styled.div`
     height: calc(100vh - 225px);    
     width: 250px;
     background-color: white;
-    margin: 6px 6px 6px 14px;
+    margin: 6px 6px 6px 18px;
     padding: 6px;
     border-radius: 4px;
     border: 1px solid #ddd;
 `;
 
 export const StyledTitle = styled.div`
-    font-size: 12px; 
+    font-size: 15px; 
     text-align: left;
-    padding-left: 20px;
+    padding-left: 8px;
+    color: #8c8c8c;
     font-weight: bold;
     border-bottom: 1px solid #ddd;
     margin: 4px;
