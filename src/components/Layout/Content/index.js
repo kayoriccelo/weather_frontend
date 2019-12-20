@@ -5,7 +5,7 @@ import { StyledRoot } from './styled';
 
 export default function Content(props) {
     return (
-        <StyledRoot>
+        <StyledRoot screen={props.screen}>
             {props.children}
         </StyledRoot>
     );

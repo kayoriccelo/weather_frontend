@@ -4,11 +4,11 @@ import Link from '../../Link';
 import { StyledRoot } from './styled';
 
 
-export default function Sidebar() {
+export default function Sidebar(props) {
     return (
-        <StyledRoot>
-            <Link label="Search" href='/' />
-            <Link label="History" href='/history' />
+        <StyledRoot screen={props.screen}>
+            <Link screen={props.screen} label="Search" href='/' />
+            <Link screen={props.screen} label="History" href='/history' />
         </StyledRoot>
     );
 };

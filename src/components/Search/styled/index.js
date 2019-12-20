@@ -10,8 +10,8 @@ export const StyledRoot = styled.div`
 `;
 
 export const StyledInputSearch = styled.input`
-    width: 200px;
-    height: 35px;
+    width: 220px;
+    height: 30px;
     border: 1px solid #ff920a;
     border-radius: 8px;
     padding: 4px 4px 4px 16px;
@@ -26,8 +26,8 @@ export const StyledButtonSearch = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     margin-left: 8px;
     position: relative;
     background-color: #ff920a;

@@ -4,10 +4,10 @@ import styled from 'styled-components';
 export const StyledRoot = styled.div`
     margin: 18px;
     padding: 6px;
-    width: calc(100% - 50px);
-    height: calc(100vh - 140px);
     border: 1px solid #ddd;
     border-radius: 6px;
+    height: calc(100vh - 150px);
+    overflow-y: auto;
 `;
 
 export const StyledRow = styled.div`

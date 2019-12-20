@@ -1,123 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { apiService } from '../../services/api';
-import { Search, Panel } from '../../components';
+import { updateDimensions } from '../../commons/useful';
+import { Search } from '../../components';
 import { StyledRoot, StyledMain } from './styled';
 import List from './List';
+import Panel from './Panel';
 
 
 export default function Weather() {
     const [search, setSearch] = useState('');
-    
-    const data = {
-        "city": {
-            "id": 1851632,
-            "name": "Shuzenji",
-            "coord": {
-                "lon": 138.933334,
-                "lat": 34.966671
-            },
-            "country": "JP",
-            "timezone": 32400,
-            "cod": "200",
-            "message": 0.0045,
-            "cnt": 38,
-            "list": [
-                {
-                    "dt": 1406106000,
-                    "main": {
-                        "temp": 298.77,
-                        "temp_min": 298.77,
-                        "temp_max": 298.774,
-                        "pressure": 1005.93,
-                        "sea_level": 1018.18,
-                        "grnd_level": 1005.93,
-                        "humidity": 87,
-                        "temp_kf": 0.26
-                    },
-                    "weather": [{ "id": 804, "main": "Clouds", "description": "overcast clouds", "icon": "04d" }],
-                    "clouds": { "all": 88 },
-                    "wind": { "speed": 5.71, "deg": 229.501 },
-                    "sys": { "pod": "d" },
-                    "dt_txt": "2014-07-23 09:00:00"
-                },
-                {
-                    "dt": 1406106000,
-                    "main": {
-                        "temp": 298.77,
-                        "temp_min": 298.77,
-                        "temp_max": 298.774,
-                        "pressure": 1005.93,
-                        "sea_level": 1018.18,
-                        "grnd_level": 1005.93,
-                        "humidity": 87,
-                        "temp_kf": 0.26
-                    },
-                    "weather": [{ "id": 804, "main": "Clouds", "description": "overcast clouds", "icon": "04d" }],
-                    "clouds": { "all": 88 },
-                    "wind": { "speed": 5.71, "deg": 229.501 },
-                    "sys": { "pod": "d" },
-                    "dt_txt": "2014-07-23 09:00:00"
-                },
-                {
-                    "dt": 1406106000,
-                    "main": {
-                        "temp": 298.77,
-                        "temp_min": 298.77,
-                        "temp_max": 298.774,
-                        "pressure": 1005.93,
-                        "sea_level": 1018.18,
-                        "grnd_level": 1005.93,
-                        "humidity": 87,
-                        "temp_kf": 0.26
-                    },
-                    "weather": [{ "id": 804, "main": "Clouds", "description": "overcast clouds", "icon": "04d" }],
-                    "clouds": { "all": 88 },
-                    "wind": { "speed": 5.71, "deg": 229.501 },
-                    "sys": { "pod": "d" },
-                    "dt_txt": "2014-07-23 09:00:00"
-                },
-                {
-                    "dt": 1406106000,
-                    "main": {
-                        "temp": 298.77,
-                        "temp_min": 298.77,
-                        "temp_max": 298.774,
-                        "pressure": 1005.93,
-                        "sea_level": 1018.18,
-                        "grnd_level": 1005.93,
-                        "humidity": 87,
-                        "temp_kf": 0.26
-                    },
-                    "weather": [{ "id": 804, "main": "Clouds", "description": "overcast clouds", "icon": "04d" }],
-                    "clouds": { "all": 88 },
-                    "wind": { "speed": 5.71, "deg": 229.501 },
-                    "sys": { "pod": "d" },
-                    "dt_txt": "2014-07-23 09:00:00"
-                }
-            ]
-        }
-    };
+    const [data, setData] = useState(null);
+    const [screen, setScreen] = useState({ width: 0 });
+
+    useEffect(() => {
+        updateDimensions(setScreen)();
+        window.addEventListener('resize', updateDimensions(setScreen));
+
+        return () => window.removeEventListener('resize', updateDimensions(setScreen))
+    }, []);
 
     const onSearch = event => {
         setSearch(event.target.value);
     }
 
     const onClickSearch = () => {
-        apiService.get(`/weather?q=${search}`)
+        apiService.get(`/forecast?q=${search}`)
             .then(res => {
-                console.log(res)
-            })
+                setData(res.data);
+            });
     }
 
     return (
         <StyledRoot>
-            <Search search={search} onSearch={onSearch} onClick={onClickSearch}/>
-            <StyledMain>
-                <Panel data={data['city']} />
+            <Search search={search} onSearch={onSearch} onClick={onClickSearch} />
+            {data && (
+                <StyledMain screen={screen}>
+                    <Panel screen={screen} data={data['city']} />
 
-                <List data={data['city']} />
-            </StyledMain>
+                    <List screen={screen} data={data} />
+                </StyledMain>
+                )}
         </StyledRoot >
     );
 };

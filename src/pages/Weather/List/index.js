@@ -14,7 +14,7 @@ export default function List(props) {
     };
 
     return (
-        <StyledRoot>
+        <StyledRoot screen={props.screen}>
             <StyledTitle children="Days" />
 
             {props.data['list'].length > 0 ? (
@@ -36,7 +36,7 @@ export default function List(props) {
             <Modal
                 showing={showing}
                 hide={() => setShowing(false)}
-                city={props.data}
+                city={props.data['city']}
                 day={day}
             />
         </StyledRoot>

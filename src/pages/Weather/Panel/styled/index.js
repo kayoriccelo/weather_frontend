@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 
 export const StyledCard = styled.div`
-    height: calc(100vh - 225px);    
-    width: 250px;
+    height: ${props => props.screen.width >= 800 ? 'calc(100vh - 225px)' : '90px'};    
+    width: ${props => props.screen.width >= 800 ? '250px' : 'calc(100% - 40px)'};
     background-color: white;
-    margin: 6px 6px 6px 18px;
+    margin: ${props => props.screen.width >= 800 ? '6px 6px 6px 18px' : '9px 12px 9px 12px'};
     padding: 6px;
     border-radius: 4px;
     border: 1px solid #ddd;

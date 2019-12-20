@@ -4,7 +4,7 @@ import { StyledLink } from './styled';
 
 export default function (props) {
     return (
-        <StyledLink to={props.href}>
+        <StyledLink screen={props.screen} to={props.href}>
             {props.label}
         </StyledLink>
     );

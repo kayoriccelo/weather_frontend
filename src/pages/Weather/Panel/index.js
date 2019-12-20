@@ -4,20 +4,8 @@ import { StyledCard, StyledTitle, StyledLabel, StyledValue, StyledRow } from './
 
 
 export default function Panel(props) {
-
-    // const parseTime = duration => {
-    //     var minutes = parseInt((duration / (1000 * 60)) % 60)
-    //         , hours = parseInt((duration / (1000 * 60 * 60)) % 24);
-
-    //     hours = (hours < 10) ? "0" + hours : hours;
-    //     minutes = (minutes < 10) ? "0" + minutes : minutes;
-
-    //     return `${hours}:${minutes}`;
-    // }
-
-
     return (
-        <StyledCard>
+        <StyledCard screen={props.screen}>
             <StyledTitle>
                 Location
             </StyledTitle>

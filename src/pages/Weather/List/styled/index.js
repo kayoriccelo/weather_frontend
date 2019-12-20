@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 
 export const StyledRoot = styled.div`
-    margin: 6px 18px 6px 6px;
+    margin: ${props => props.screen.width >= 800 ? '6px 18px 6px 6px' : '9px 12px 18px 12px'};
     padding: 6px;
-    width: 100%;
+    width: ${props => props.screen.width >= 800 ? '100%' : 'calc(100% - 40px)'};
+    height: calc(100vh - 225px);
+    overflow-y: auto;
     border: 1px solid #ddd;
     border-radius: 6px;
 `;
@@ -14,6 +16,7 @@ export const StyledRow = styled.div`
     margin: 4px;
     background-color: #ffebcc;
     border-radius: 4px;
+    width: 100vh;
 `;
 
 export const StyledRowContent = styled.div`
@@ -27,7 +30,7 @@ export const StyledEmpty = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 220px);
+    height: calc(100vh - 260px);
 `;
 
 export const StyledTitle = styled.div`
