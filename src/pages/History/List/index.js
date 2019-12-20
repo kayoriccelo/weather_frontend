@@ -7,8 +7,8 @@ export default function List(props) {
         <StyledRoot>
             <StyledTitle children="History" />
 
-            {props.data['list'].length > 0 ? (
-                props.data['list'].map(item => (
+            {props.data.length > 0 ? (
+                props.data.map(item => (
                     <StyledRow>
                         <StyledRowContent>
                             <b>Date:</b> {item['date']}
