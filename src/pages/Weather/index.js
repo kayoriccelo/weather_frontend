@@ -22,7 +22,7 @@ export default function Weather() {
 
     const onSearch = event => {
         setSearch(event.target.value);
-    }
+    };
 
     const onClickSearch = () => {
         apiService.get(`/forecast?q=${search}`)
@@ -31,7 +31,7 @@ export default function Weather() {
 
                 apiApplication.post(`/api/v1/history/`, { search, json: JSON.stringify(res.data) })
             });
-    }
+    };
 
     return (
         <StyledRoot>
