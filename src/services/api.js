@@ -13,8 +13,8 @@ export const apiService = axios.create({
 });
 
 apiService.interceptors.request.use(config => {
-    let prefix = config.url.indexOf('?') === -1 ? '?' : '&'
+    let prefix = config.url.indexOf('?') === -1 ? '?' : '&';
 
-    config.url = `${config.url + prefix}APPID=4eb004c6e89a4912abb8b5466a5f9da9`
-    return config
+    config.url = `${config.url + prefix}APPID=4eb004c6e89a4912abb8b5466a5f9da9`;
+    return config;
 });

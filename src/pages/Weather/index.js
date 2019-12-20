@@ -17,7 +17,7 @@ export default function Weather() {
         updateDimensions(setScreen)();
         window.addEventListener('resize', updateDimensions(setScreen));
 
-        return () => window.removeEventListener('resize', updateDimensions(setScreen))
+        return () => window.removeEventListener('resize', updateDimensions(setScreen));
     }, []);
 
     const onSearch = event => {
@@ -29,7 +29,7 @@ export default function Weather() {
             .then(res => {
                 setData(res.data);
 
-                apiApplication.post(`/api/v1/history/`, { search, json: JSON.stringify(res.data) })
+                apiApplication.post(`/api/v1/history/`, { search, json: JSON.stringify(res.data) });
             });
     };
 

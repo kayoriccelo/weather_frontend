@@ -19,7 +19,6 @@ export default function App() {
         return () => window.removeEventListener('resize', updateDimensions(setScreen))
     }, []);
 
-
     return (
         <BrowserRouter>
             <Header />

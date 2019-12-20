@@ -16,7 +16,7 @@ export default function HistorySearch() {
         updateDimensions(setScreen)();
         window.addEventListener('resize', updateDimensions(setScreen));
 
-        return () => window.removeEventListener('resize', updateDimensions(setScreen))
+        return () => window.removeEventListener('resize', updateDimensions(setScreen));
     }, []);
 
     useEffect(() => {
