@@ -7,6 +7,10 @@
 
       + Instalando dependências:
           + sudo yarn install
+          
+      + Criar arquivo env.js na pasta services com base no arquivo env_example:
+          + src/services/env_example
+          + src/services/env.js
 
       + Iniciando Serviço:
           + sudo yarn start
