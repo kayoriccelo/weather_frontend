@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { apiService } from '../../services/api';
+import { apiService, apiApplication } from '../../services/api';
 import { updateDimensions } from '../../commons/useful';
 import { Search } from '../../components';
 import { StyledRoot, StyledMain } from './styled';
@@ -28,19 +28,25 @@ export default function Weather() {
         apiService.get(`/forecast?q=${search}`)
             .then(res => {
                 setData(res.data);
+
+                apiApplication.post(`/api/v1/history/`, { search, json: JSON.stringify(res.data) })
             });
     }
 
     return (
         <StyledRoot>
-            <Search search={search} onSearch={onSearch} onClick={onClickSearch} />
-            {data && (
-                <StyledMain screen={screen}>
-                    <Panel screen={screen} data={data['city']} />
+            <Search
+                placeholder="Your city name"
+                search={search}
+                onSearch={onSearch}
+                onClick={onClickSearch}
+            />
 
-                    <List screen={screen} data={data} />
-                </StyledMain>
-                )}
+            <StyledMain screen={screen}>
+                <Panel screen={screen} data={data && data['city']} />
+
+                <List screen={screen} data={data && data} />
+            </StyledMain>
         </StyledRoot >
     );
 };

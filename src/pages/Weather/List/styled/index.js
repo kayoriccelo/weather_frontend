@@ -5,7 +5,7 @@ export const StyledRoot = styled.div`
     margin: ${props => props.screen.width >= 800 ? '6px 18px 6px 6px' : '9px 12px 18px 12px'};
     padding: 6px;
     width: ${props => props.screen.width >= 800 ? '100%' : 'calc(100% - 40px)'};
-    height: calc(100vh - 225px);
+    height: calc(100vh - 230px);
     overflow-y: auto;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -14,9 +14,9 @@ export const StyledRoot = styled.div`
 export const StyledRow = styled.div`
     padding: 6px;
     margin: 4px;
-    background-color: #ffebcc;
+    background-color: #fff5e6;
     border-radius: 4px;
-    width: 100vh;
+    width: 140vh;
 `;
 
 export const StyledRowContent = styled.div`

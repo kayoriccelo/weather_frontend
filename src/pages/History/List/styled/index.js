@@ -6,15 +6,16 @@ export const StyledRoot = styled.div`
     padding: 6px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 250px);
     overflow-y: auto;
 `;
 
 export const StyledRow = styled.div`
     padding: 6px;
     margin: 4px;
-    background-color: #ffebcc;
+    background-color: #fff5e6;
     border-radius: 4px;
+    width: 165vh;
 `;
 
 export const StyledRowContent = styled.div`

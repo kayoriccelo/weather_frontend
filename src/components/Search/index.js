@@ -7,7 +7,7 @@ export default function Search(props) {
     return (
         <StyledRoot>
             <StyledInputSearch
-                placeholder='Your city name'
+                placeholder={props.placeholder}
                 value={props.value}
                 onChange={props.onSearch}
             />

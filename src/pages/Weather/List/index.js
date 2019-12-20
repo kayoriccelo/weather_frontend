@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
+import { Modal } from '../../../components';
 import { StyledRoot, StyledTitle, StyledRow, StyledRowContent, StyledEmpty } from './styled';
-import Modal from '../Modal';
 
 
 export default function List(props) {
@@ -17,28 +17,27 @@ export default function List(props) {
         <StyledRoot screen={props.screen}>
             <StyledTitle children="Days" />
 
-            {props.data['list'].length > 0 ? (
-                props.data['list'].map(item => (
-                    <StyledRow >
-                        <StyledRowContent onClick={handleClick(item)} >
-                            <b>Date:</b> {item['dt_txt']}
-
-                            <b>Cloudiness:</b> {item['weather'][0]['description']}
-
-
-                            <b>Min:</b> {item['main']['temp_min']} °C
-                            <b>Max:</b> {item['main']['temp_max']} °C
-                        </StyledRowContent>
-                    </StyledRow>
-                ))
-            ) : (<StyledEmpty children="Empty" />)}
-
-            <Modal
-                showing={showing}
-                hide={() => setShowing(false)}
-                city={props.data['city']}
-                day={day}
-            />
+            {props.data ? (
+                <>
+                    {props.data['list'].map((item, index) => (
+                        <StyledRow key={index}>
+                            <StyledRowContent onClick={handleClick(item)} >
+                                <b>Date:</b> {item['dt_txt']}
+                                <b>Cloudiness:</b> {item['weather'][0]['description']}
+                                <b>Min:</b> {item['main']['temp_min']} °C
+                                <b>Max:</b> {item['main']['temp_max']} °C
+                            </StyledRowContent>
+                        </StyledRow>
+                    ))}
+                    
+                    <Modal
+                        showing={showing}
+                        hide={() => setShowing(false)}
+                        city={props.data['city']}
+                        day={day}
+                    />
+                </>
+            ) : (<StyledEmpty children="No results found." />)}
         </StyledRoot>
     );
 };
