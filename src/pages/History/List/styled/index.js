@@ -15,7 +15,7 @@ export const StyledRow = styled.div`
     margin: 4px;
     background-color: #fff5e6;
     border-radius: 4px;
-    width: 165vh;
+    width: 160vh;
 `;
 
 export const StyledRowContent = styled.div`

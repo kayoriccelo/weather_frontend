@@ -24,8 +24,8 @@ export default function List(props) {
                             <StyledRowContent onClick={handleClick(item)} >
                                 <b>Date:</b> {item['dt_txt']}
                                 <b>Cloudiness:</b> {item['weather'][0]['description']}
-                                <b>Min:</b> {item['main']['temp_min']} °C
-                                <b>Max:</b> {item['main']['temp_max']} °C
+                                <b>Min:</b> {(item['main']['temp_min'] - 273.15).toFixed(2)} °C
+                                <b>Max:</b> {(item['main']['temp_max'] - 273.15).toFixed(2)} °C
                             </StyledRowContent>
                         </StyledRow>
                     ))}

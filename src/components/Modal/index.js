@@ -49,11 +49,11 @@ export default function Modal({ showing, hide, city, day }) {
                             </StyledRow>
 
                             <StyledRow>
-                                <b>Maximum Temperature</b> {day['main']['temp_max']}
+                                <b>Maximum Temperature</b> {(day['main']['temp_max'] - 273.15).toFixed(2)} °C
                             </StyledRow>
 
                             <StyledRow>
-                                <b>Minimum Temperature</b> {day['main']['temp_min']}
+                                <b>Minimum Temperature</b> {(day['main']['temp_min'] - 273.15).toFixed(2)} °C
                             </StyledRow>
 
                             <StyledRow>

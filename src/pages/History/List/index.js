@@ -12,7 +12,7 @@ export default function List(props) {
                     <StyledRow key={index}>
                         <StyledRowContent >
                             <b>Date:</b> {item['date']}
-                            <b>Search:</b> {item['search']}
+                            <b>Searched:</b> {item['search']}
                             <b>City:</b> {JSON.parse(item['json'])['city']['name']}
                             <b>Country:</b> {JSON.parse(item['json'])['city']['country']}
                             <b>Geo Coords:</b> [{JSON.parse(item['json'])['city']['coord']['lat']}, {JSON.parse(item['json'])['city']['coord']['lon']}]
