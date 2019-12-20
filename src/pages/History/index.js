@@ -1,22 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
+import { apiApplication } from '../../services/api';
 import { StyledRoot } from './styled';
 import List from './List';
 
 
 export default function HistorySearch() {
-    const data = {
-        list: [
-            {
-                date: '2019-12-18 16:00:00',
-                search: 'Fortaleza'
-            },
-            {
-                date: '2019-12-18 12:00:00',
-                search: 'Londres'
-            }
-        ]
-    }
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        apiApplication.get('/api/v1/history')
+            .then(res => {
+                setData(res.data['results']);
+            });
+    }, []);
+
     return (
         <StyledRoot>
             <List data={data} />
