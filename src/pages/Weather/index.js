@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import { apiService } from '../../services/api';
 import { Search, Panel } from '../../components';
 import { StyledRoot, StyledMain } from './styled';
 import List from './List';
 
 
 export default function Weather() {
+    const [search, setSearch] = useState('');
+    
     const data = {
         "city": {
             "id": 1851632,
@@ -96,9 +99,20 @@ export default function Weather() {
         }
     };
 
+    const onSearch = event => {
+        setSearch(event.target.value);
+    }
+
+    const onClickSearch = () => {
+        apiService.get(`/weather?q=${search}`)
+            .then(res => {
+                console.log(res)
+            })
+    }
+
     return (
         <StyledRoot>
-            <Search />
+            <Search search={search} onSearch={onSearch} onClick={onClickSearch}/>
             <StyledMain>
                 <Panel data={data['city']} />
 

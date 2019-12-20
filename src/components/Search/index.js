@@ -9,10 +9,10 @@ export default function Search(props) {
             <StyledInputSearch
                 placeholder='Your city name'
                 value={props.value}
-                onChange={props.onChange}
+                onChange={props.onSearch}
             />
 
-            <StyledButtonSearch>
+            <StyledButtonSearch onClick={props.onClick}>
                 <img src={require('../../assets/images/search.ico')} alt="search" width="25" />
             </StyledButtonSearch>
         </StyledRoot>
